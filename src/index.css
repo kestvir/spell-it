@@ -39,7 +39,6 @@ input {
     height: 100vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
 }
 
 .text-center {
@@ -119,7 +118,6 @@ input {
 #game-stats {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 7rem;
     margin-bottom: 9rem;
     -webkit-column-gap: 2rem;
     -moz-column-gap: 2rem;
