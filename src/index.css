@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background: rgb(100, 0, 123);
+    background: radial-gradient(circle, rgba(100, 0, 123, 1) 0%, rgba(62, 20, 86, 1) 100%);
+    overflow: hidden;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.2rem;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    outline: none;
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    outline: none;
+    color: white;
+    padding: 10px 30px;
+    text-transform: lowercase;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    background: transparent;
+    border-radius: 50px;
+    border: 3px solid white;
+    cursor: pointer;
+    letter-spacing: 0.2rem;
+}
+
+.start-btn {
+    padding: 1.5rem 2.75rem;
+    font-size: 2rem;
+}
+
+.tiny-text {
+    font-size: 2rem;
+    color: #f8e112;
+}
+
+#answer, #hint {
+    border: none;
+    text-align: center;
+}
+
+#answer {
+    background: transparent;
+    margin: 3rem 0;
+    font-size: 7rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+#hint {
+    margin: 3rem 0;
+    cursor: pointer;
+    display: none;
+}
+
+#hint p {
+    font-size: 7rem;
+    font-weight: 300;
+}
+
+#hint-btn, #repeat-btn, #submit-btn {
+    padding: 1.25rem 2.25rem;
+    font-size: 1.25rem;
+}
+
+#hint-btn {
+    margin-left: 0.5rem;
+}
+
+#hint-and-repeat {
+    display: flex;
+    justify-content: center;
+}
+
+.incorrect-letter {
+    color: #f8e112;
+}
+
+#round, #attempts, #accuracy {
+    font-size: 2rem;
+}
+
+#game-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 7rem;
+    margin-bottom: 9rem;
+    -webkit-column-gap: 2rem;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-game-screen {
+    margin: auto;
+}
+
+::placeholder {
+    color: rgb(185, 172, 174);
+}
+
+.flash-message, .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flash-message {
+    font-size: 3.5rem;
+}
+
+.loader {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #fff;
+}
+
+#high-score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 930px) {
+    #answer {
+        margin: 2rem 0;
+        font-size: 5rem;
+    }
+    #hint-btn, #repeat-btn, #submit-btn {
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem
+    }
+    #game-stats {
+        grid-template-columns: 1fr;
+        margin-bottom: 3rem
+    }
+    #round, #attempts, #accuracy {
+        font-size: 1.5rem;
+    }
+    #round {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 676px) {
+    .main-container {
+        flex-direction: row;
+    }
+    .flash-message {
+        font-size: 2.2rem;
+    }
+    #hint-and-repeat {
+        flex-direction: column;
+        align-items: center;
+    }
+    #hint p {
+        font-size: 3rem;
+    }
+    .tiny-text {
+        font-size: 1.5rem;
+    }
+    #hint-btn {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    #answer {
+        font-size: 3rem;
+    }
+    #game-stats {
+        margin-top: 2rem;
+    }
+    #high-score {
+        font-size: 1rem;
+        position: static
+    }
+}
+
+@media screen and (max-width: 376px) {
+    h1 {
+        font-size: 4.5rem;
+    }
+    .start-btn {
+        padding: 1.25rem 2.25rem;
+        font-size: 1.25rem;
+    }
+    #answer {
+        font-size: 2rem;
+    }
+    #round, #attempts, #accuracy {
+        font-size: 1rem;
+    }
+}
