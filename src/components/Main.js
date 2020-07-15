@@ -39,20 +39,21 @@ const Main = () => {
         }
 
         if (round === 0) {
-            setLoading(true)
-            getPrevHighscore()
+            setLoading(true);
+            getPrevHighscore();
         }
 
         setTimeout(() => {
             getRandomWord();
-            setRound(round + 1)
-        }, 1500)
+            setRound(round + 1);
+        }, 1500);
     }
 
     const getPrevHighscore = () => {
         const savedHighScore = localStorage.getItem('highScore');
-        const userHighScore = savedHighScore !== 'null' ? parseInt(savedHighScore) : 0
-        setHighScore(userHighScore)
+        console.log(savedHighScore)
+        const userHighScore = savedHighScore !== null ? parseInt(savedHighScore) : 0;
+        setHighScore(userHighScore);
     }
 
     const getRandomWord = () => {
