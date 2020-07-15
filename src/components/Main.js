@@ -40,15 +40,19 @@ const Main = () => {
 
         if (round === 0) {
             setLoading(true)
-            const savedHighScore = localStorage.getItem('highScore');
-            const userHighScore = savedHighScore !== 'null' ? parseInt(savedHighScore) : 0
-            setHighScore(userHighScore)
+            getPrevHighscore()
         }
 
         setTimeout(() => {
             getRandomWord();
             setRound(round + 1)
         }, 1500)
+    }
+
+    const getPrevHighscore = () => {
+        const savedHighScore = localStorage.getItem('highScore');
+        const userHighScore = savedHighScore !== 'null' ? parseInt(savedHighScore) : 0
+        setHighScore(userHighScore)
     }
 
     const getRandomWord = () => {
@@ -157,33 +161,40 @@ const Main = () => {
         answerInputEl.current.style.display = "block";
     }
 
+    useEffect(() => {
+        const saveNewHighScore = () => {
+            const newHighscore = round - 1;
+            setHighScore(newHighscore)
+            localStorage.setItem('highScore', newHighscore);
+        }
+        if (round > highScore) {
+            saveNewHighScore()
+        }
+    }, [round, highScore])
 
     useEffect(() => {
         if (word.length === 0) return
+        // eslint-disable-next-line
         else sayWord()
         console.log(word)
     }, [word])
 
     useEffect(() => {
-        if (round > highScore) {
-            const newHighscore = round - 1;
-            setHighScore(newHighscore)
-            localStorage.setItem('highScore', newHighscore);
+        const calcAccuracy = () => {
+            // eslint-disable-next-line
+            return (correctAttempts / attempts * 100).toFixed(0)
         }
-    }, [round])
-
-    useEffect(() => {
         if (attempts === 0) return
-        else setAccuracy((correctAttempts / attempts * 100).toFixed(0))
+        else {
+            const currentAccucary = calcAccuracy()
+            setAccuracy(currentAccucary)
+        }
     }, [attempts])
-
-
 
     return (
         <div className="text-center">
 
             {loading && <Loader />}
-
 
             <AnimatePresence>
                 {displayMessage &&
@@ -218,7 +229,7 @@ const Main = () => {
                         <motion.div variants={gameVariants}>
                             <div id="hint-and-repeat">
                                 <motion.button className="btn" id="repeat-btn"
-                                    onClick={() => sayWord(word)}
+                                    onClick={sayWord}
                                     variants={allBtnVariants}
                                     whileHover="hover"
                                 >
