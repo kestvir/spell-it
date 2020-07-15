@@ -1,7 +1,7 @@
 const API_KEY = process.env.REACT_APP_WORDNIK_API_KEY;
 
 
-const apiBaseURL = "https://api.wordnik.com:80/v4/words.json/";
+const apiBaseURL = "https://api.wordnik.com/v4/words.json/";
 
 const apiOptions = "randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=1&api_key="
 
