@@ -174,14 +174,14 @@ const Main = () => {
 
     useEffect(() => {
         if (word.length === 0) return
-        // eslint-disable-next-line
+        // need to rewrite
         else sayWord()
         console.log(word)
     }, [word])
 
     useEffect(() => {
         const calcAccuracy = () => {
-            // eslint-disable-next-line
+            // need to rewrite
             return (correctAttempts / attempts * 100).toFixed(0)
         }
         if (attempts === 0) return
