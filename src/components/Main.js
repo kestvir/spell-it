@@ -26,12 +26,10 @@ const Main = () => {
     const [loading, setLoading] = useState(false)
     const [highScore, setHighScore] = useState(0)
 
-
     const hintEl = useRef(null);
     const answerInputEl = useRef(null);
     const startGameEl = useRef(null)
     const mainContainerEl = useRef(null)
-
 
     const startRound = () => {
         if (startGameEl.current && startGameEl.current.style.display !== "none") {
@@ -124,9 +122,9 @@ const Main = () => {
     const lengthNotSame = () => {
         hintEl.current.innerHTML =
             `
-            <span class="tiny-text">Incorrect answer length</span>
-            <p>${answer}</p>
-        `
+                <span class="tiny-text">Incorrect answer length</span>
+                <p>${answer}</p>
+            `
     }
 
     const displayIncorrectLetters = () => {
@@ -140,7 +138,6 @@ const Main = () => {
                 return letter;
             }
         })
-
         const hintWord = hintLettersArr.join('')
         hintEl.current.innerHTML = `<p>${hintWord}</p>`
     }
@@ -162,6 +159,7 @@ const Main = () => {
         answerInputEl.current.style.display = "block";
     }
 
+
     useEffect(() => {
         const saveNewHighScore = () => {
             const newHighscore = round - 1;
@@ -173,16 +171,16 @@ const Main = () => {
         }
     }, [round, highScore])
 
+
     useEffect(() => {
         if (word.length === 0) return
-        // maybe need to rewrite
         else sayWord()
         console.log(word)
     }, [word])
 
+
     useEffect(() => {
         const calcAccuracy = () => {
-            // maybe need to rewrite
             return (correctAttempts / attempts * 100).toFixed(0)
         }
         if (attempts === 0) return
@@ -191,6 +189,7 @@ const Main = () => {
             setAccuracy(currentAccucary)
         }
     }, [attempts])
+
 
     return (
         <div className="text-center">
@@ -215,8 +214,7 @@ const Main = () => {
                 className="main-container"
                 variants={basicVariants}
                 initial="hidden"
-                animate="visible"
-            >
+                animate="visible">
 
                 {word &&
                     <div className="container">
@@ -232,8 +230,7 @@ const Main = () => {
                                 <motion.button className="btn" id="repeat-btn"
                                     onClick={sayWord}
                                     variants={allBtnVariants}
-                                    whileHover="hover"
-                                >
+                                    whileHover="hover">
                                     Repeat Word
                                     </motion.button>
 
@@ -242,13 +239,11 @@ const Main = () => {
                                         className="btn"
                                         id="hint-btn" onClick={displayHint}
                                         variants={allBtnVariants}
-                                        whileHover="hover"
-                                    >
+                                        whileHover="hover">
                                         Hint
-                                        </motion.button>
+                                    </motion.button>
                                 }
                             </div>
-
 
                             <form onSubmit={checkAnswer}>
 
@@ -261,8 +256,7 @@ const Main = () => {
                                     name="answer"
                                     placeholder="Type your answer!"
                                     autoComplete="off"
-                                    spellCheck="false"
-                                />
+                                    spellCheck="false" />
 
                                 <div ref={hintEl} id="hint" onClick={hideHint}>
                                     Hello
@@ -271,7 +265,6 @@ const Main = () => {
                                 <motion.input className="btn" id="submit-btn" type="submit"
                                     variants={allBtnVariants}
                                     whileHover="hover" />
-
                             </form>
 
                         </motion.div>
@@ -279,22 +272,19 @@ const Main = () => {
                     </div>
                 }
 
-
                 {!round &&
                     (
                         <motion.div
                             ref={startGameEl}
                             id="start-game-screen"
                             variants={startContainerVariants}>
-                            <h1 >
-                                Spell It!
-                            </h1>
+
+                            <h1>Spell It!</h1>
 
                             <motion.div variants={basicVariants}>
                                 <motion.button className="btn start-btn" onClick={startRound}
                                     variants={allBtnVariants}
-                                    whileHover="hover"
-                                >
+                                    whileHover="hover">
                                     Start Game
                                 </motion.button>
                             </motion.div>
@@ -302,7 +292,7 @@ const Main = () => {
                     )
                 }
             </motion.div>
-        </div >
+        </div>
     );
 }
 

@@ -24,8 +24,7 @@ const Loader = () => {
         <>
             <motion.div className="loader"
                 variants={loaderVariants}
-                animate="animationOne"
-            >
+                animate="animationOne">
             </motion.div>
         </>
     )
