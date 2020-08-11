@@ -246,7 +246,6 @@ const Main = () => {
                             </div>
 
                             <form onSubmit={checkAnswer}>
-
                                 <input
                                     onChange={e => setAnswer(e.target.value)}
                                     ref={answerInputEl}
@@ -266,9 +265,7 @@ const Main = () => {
                                     variants={allBtnVariants}
                                     whileHover="hover" />
                             </form>
-
                         </motion.div>
-
                     </div>
                 }
 
