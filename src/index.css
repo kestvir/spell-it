@@ -163,6 +163,14 @@ input {
     font-size: 1rem;
 }
 
+#reset-game {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 930px) {
     #answer {
         margin: 2rem 0;
@@ -211,9 +219,12 @@ input {
     #game-stats {
         margin-top: 2rem;
     }
-    #high-score {
+    #high-score, #reset-game {
         font-size: 1rem;
-        position: static
+        position: static;
+    }
+    #reset-game {
+        margin-bottom: 2rem;
     }
 }
 
